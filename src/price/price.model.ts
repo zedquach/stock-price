@@ -1,5 +1,5 @@
-import { Field, ObjectType } from '@nestjs/graphql';
-import { Interval } from '../scalars';
+import { Args, Field, InputType, ObjectType } from '@nestjs/graphql';
+import { PRICE_SOURCES } from '../enum';
 
 @ObjectType()
 export class Price {
@@ -51,7 +51,7 @@ export class MetaData {
   @Field((type) => String, { nullable: true })
   time_zone?: string;
 
-  @Field((type) => Interval, { nullable: true })
+  @Field((type) => String, { nullable: true })
   interval?: string;
 
   @Field((type) => String, { nullable: true })

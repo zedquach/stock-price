@@ -2,6 +2,7 @@ import { Args, Query, Resolver } from '@nestjs/graphql';
 import { PriceService } from './price.service';
 import { PriceSeriesResponse } from './price.model';
 import { IPriceResponseDTO } from './dto/IPriceResponseDTO';
+import { INTERVALS, PRICE_SOURCES } from '../enum';
 
 @Resolver(() => PriceSeriesResponse)
 export class PriceResolver {
@@ -9,7 +10,7 @@ export class PriceResolver {
 
   @Query(() => PriceSeriesResponse)
   getDailyPrice(
-    @Args('source') source: string,
+    @Args('source', { type: () => PRICE_SOURCES }) source: PRICE_SOURCES,
     @Args('symbol') symbol: string,
   ): Promise<IPriceResponseDTO> {
     return this.priceService.getDailyPrice(source, symbol);
@@ -17,7 +18,7 @@ export class PriceResolver {
 
   @Query(() => PriceSeriesResponse)
   getWeeklyPrice(
-    @Args('source') source: string,
+    @Args('source', { type: () => PRICE_SOURCES }) source: PRICE_SOURCES,
     @Args('symbol') symbol: string,
   ): Promise<IPriceResponseDTO> {
     return this.priceService.getWeeklyPrice(source, symbol);
@@ -25,7 +26,7 @@ export class PriceResolver {
 
   @Query(() => PriceSeriesResponse)
   getMonthlyPrice(
-    @Args('source') source: string,
+    @Args('source', { type: () => PRICE_SOURCES }) source: PRICE_SOURCES,
     @Args('symbol') symbol: string,
   ): Promise<IPriceResponseDTO> {
     return this.priceService.getMonthlyPrice(source, symbol);
@@ -33,9 +34,9 @@ export class PriceResolver {
 
   @Query(() => PriceSeriesResponse)
   getIntraDayPrice(
-    @Args('source') source: string,
+    @Args('source', { type: () => PRICE_SOURCES }) source: string,
     @Args('symbol') symbol: string,
-    @Args('interval') interval: string,
+    @Args('interval', { type: () => INTERVALS }) interval: INTERVALS,
   ): Promise<IPriceResponseDTO> {
     return this.priceService.getIntraDayPrice(source, symbol, interval);
   }
