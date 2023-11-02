@@ -6,20 +6,31 @@ import { IPriceResponseDTO } from './dto/IPriceResponseDTO';
 export class PriceService {
   constructor(private priceRepositoryFactory: PriceRepositoryFactory) {}
 
-  async getDailyPrice(source, symbol): Promise<IPriceResponseDTO> {
-    return await this.priceRepositoryFactory.get(source)!.getDaily(symbol);
-  }
-
-  async getWeeklyPrice(source, symbol): Promise<IPriceResponseDTO> {
-    return await this.priceRepositoryFactory.get(source)!.getWeekly(symbol);
-  }
-
-  async getMonthlyPrice(source, symbol): Promise<IPriceResponseDTO> {
-    return await this.priceRepositoryFactory.get(source)!.getMonthly(symbol);
-  }
-  async getIntraDayPrice(source, symbol, interval): Promise<IPriceResponseDTO> {
+  async getDailyPrice(source, symbol, options): Promise<IPriceResponseDTO> {
     return await this.priceRepositoryFactory
       .get(source)!
-      .getIntraDay(symbol, interval);
+      .getDaily(symbol, options);
+  }
+
+  async getWeeklyPrice(source, symbol, options): Promise<IPriceResponseDTO> {
+    return await this.priceRepositoryFactory
+      .get(source)!
+      .getWeekly(symbol, options);
+  }
+
+  async getMonthlyPrice(source, symbol, options): Promise<IPriceResponseDTO> {
+    return await this.priceRepositoryFactory
+      .get(source)!
+      .getMonthly(symbol, options);
+  }
+  async getIntraDayPrice(
+    source,
+    symbol,
+    interval,
+    options,
+  ): Promise<IPriceResponseDTO> {
+    return await this.priceRepositoryFactory
+      .get(source)!
+      .getIntraDay(symbol, interval, options);
   }
 }

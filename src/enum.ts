@@ -23,3 +23,13 @@ registerEnumType(PRICE_SOURCES, {
   name: 'PRICE_SOURCES',
   description: 'Price source',
 });
+
+export enum OUTPUT_SIZES {
+  compact = 'compact',
+  full = 'full',
+}
+
+registerEnumType(OUTPUT_SIZES, {
+  name: 'OUTPUT_SIZES',
+  description: 'Output Sizes',
+});

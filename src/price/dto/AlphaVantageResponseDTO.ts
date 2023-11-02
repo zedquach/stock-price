@@ -20,8 +20,8 @@ class PriceDTO {
   @Expose({ name: '7. dividend amount', toClassOnly: true })
   dividend_amount?: string;
 
-  @Expose({ name: '5. volume', toClassOnly: true })
-  @Expose({ name: '6. volume', toClassOnly: true })
+  @Expose()
+  @Transform(({ obj }) => obj['5. volume'] || obj['6. volume'])
   volume: string;
 
   @Expose({ name: '8. split coefficient', toClassOnly: true })

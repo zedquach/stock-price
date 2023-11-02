@@ -1,8 +1,12 @@
 import { IPriceResponseDTO } from '../dto/IPriceResponseDTO';
 
 export interface IPriceRepository {
-  getIntraDay(symbol: string, interval: string): Promise<IPriceResponseDTO>;
-  getDaily(symbol: string): Promise<IPriceResponseDTO>;
-  getWeekly(symbol: string): Promise<IPriceResponseDTO>;
-  getMonthly(symbol: string): Promise<IPriceResponseDTO>;
+  getIntraDay(
+    symbol: string,
+    interval: string,
+    options?: object,
+  ): Promise<IPriceResponseDTO>;
+  getDaily(symbol: string, options?: object): Promise<IPriceResponseDTO>;
+  getWeekly(symbol: string, options?: object): Promise<IPriceResponseDTO>;
+  getMonthly(symbol: string, options?: object): Promise<IPriceResponseDTO>;
 }
