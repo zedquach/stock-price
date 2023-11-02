@@ -8,3 +8,5 @@ export const INTERVALS = [
   'weekly',
   'monthly',
 ];
+
+export const PRICE_SOURCES = ['AlphaVantage'];
