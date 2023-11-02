@@ -35,39 +35,26 @@ $ npm install
 ## Running the app
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+$ docker-compose up
 ```
 
-## Test
+## Services
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
+Main app: http://localhost:3000
+MongoDB: admin:password@localhost:27012
+MongoDB adminUI: http://localhost:8083
 
 ## Tasks
+
 - [x] Init project
 - [x] Implement graphql endpoint to query stock data
 - [x] Implement AlphaVantage client/service
-- [ ] Setup DB
+- [x] Setup DB
 - [ ] Implement user's preference schema
 - [ ] Implement User service
 - [ ] Implement authentication/authorization
 - [ ] Use user's preference in query
-- [ ] Document deployment workflow
+- [x] Document deployment workflow
 
 ## Stay in touch
 
