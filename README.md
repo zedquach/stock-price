@@ -59,9 +59,9 @@ $ npm run test:cov
 ```
 
 ## Tasks
-- [ ] Init project
-- [ ] Implement graphql endpoint to query stock data
-- [ ] Implement AlphaVantage client/service
+- [x] Init project
+- [x] Implement graphql endpoint to query stock data
+- [x] Implement AlphaVantage client/service
 - [ ] Setup DB
 - [ ] Implement user's preference schema
 - [ ] Implement User service
